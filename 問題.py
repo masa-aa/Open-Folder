@@ -1,16 +1,5 @@
 from random import randint
 
-dic = {"数字":"number", "数学":"math", "論理":"logic", "57は":"素数"} # ここに追加する
-num = 5 # 問題数
-
-#ここより下は触らない.
-#-------------------------------------------------------------------------------
-
-key = list(dic.keys())
-n = len(key)
-correct = 0
-from random import randint
-
 dic = {"とにかく":"anyway", "出荷する":"ship", "参加する、出席する":"attend", "成功した、うまくいく":"successful",
 "社員、従業員":"employee", "拡大する":"expand", "（本、雑誌等の）冊・部":"copy",
 "近い":"close", "週に一度の":"weekly", "〜を（…よりも）好む":"prefer", "著名する":"sign",
