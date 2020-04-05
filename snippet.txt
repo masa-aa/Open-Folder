@@ -57,6 +57,12 @@
     "ma": {
         "prefix": "wrong",
         "body": [
+            "'''",
+            "　 ∧_,,∧    究極奥義「WAがACになーれ！！」",
+            "　（`・ω・)つ━☆・*。",
+            "　⊂　　 ノ 　　　・゜+.",
+            "　 し’´Ｊ　　*・ ",
+            "'''",
             "import sys",
             "input = sys.stdin.readline",
         ],
@@ -106,7 +112,7 @@
     "itertools": {
         "prefix": "itertools",
         "body": [
-            "from itertools import permtations, combinations",
+            "from itertools import permutations, combinations",
         ],
         "description": "順列, 組合せを生成"
     },
@@ -128,5 +134,12 @@
             "from collections import deque ",
         ],
         "description": "deque"
+    },
+    "key": {
+        "prefix": "key",
+        "body": [
+            "key=lambda x:x[${1:}]",
+        ],
+        "description": "ソートのkeyを指定"
     },
 }
