@@ -90,7 +90,7 @@
             "   es[a-1].append(b-1)",
             "   es[b-1].append(a-1)",
             "def dfs(v):",
-            "",
+            "    ${1:}",
             "    return",
         ],
         "description": "木の入力"
@@ -142,4 +142,27 @@
         ],
         "description": "ソートのkeyを指定"
     },
+    "math": {
+        "prefix": "math",
+        "body": [
+            "from math import comb, factorial, gcd, isqrt, perm, exp, log, log2, log10, sqrt, pi, acos, asin, atan ,atan2, cos, sin, tan",
+            "from functools import reduce",
+            "def gcd_list(numbers):",
+            "   return reduce(gcd, numbers)",
+            "def lcm(x, y):",
+            "   return (x * y) // gcd(x, y)",
+            "def lcm_list(numbers):",
+            "   return reduce(lcm, numbers, 1)",
+        ],
+        "description": "math いっぱい"
+    },
+    "numpy": {
+        "prefix": "numpy",
+        "body": [
+            "import numpy as np",
+        ],
+        "description": "numpy"
+    }
+
+
 }
