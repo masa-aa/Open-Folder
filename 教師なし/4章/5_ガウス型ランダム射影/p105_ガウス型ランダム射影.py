@@ -117,4 +117,4 @@ X_train_GRP_inverse = pd.DataFrame(data=X_train_GRP_inverse, \
 anomalyScoresGRP = anomalyScores(X_train, X_train_GRP_inverse)
 preds = plotResults(y_train, anomalyScoresGRP, True)
 plt.show()
-# 平均適合率14%
+# 平均適合率42%

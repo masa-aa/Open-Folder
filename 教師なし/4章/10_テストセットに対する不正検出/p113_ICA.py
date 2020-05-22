@@ -92,52 +92,36 @@ def scatterPlot(xDF, yDF, algoName):
     ax.set_title("Separation of Observations using "+algoName)
 #---------------------------------------------------------------------------------------
 
-from sklearn.decomposition import PCA
-def n_PCA(n):
-    n_components = n
-    whiten = False
-    random_state = 2018
+# Independent Component Analysis
 
-    pca = PCA(n_components=n_components, whiten=whiten, \
-            random_state=random_state)
+from sklearn.decomposition import FastICA
 
-    X_train_PCA = pca.fit_transform(X_train)
-    X_train_PCA = pd.DataFrame(data=X_train_PCA, index=X_train.index)
-
-    X_train_PCA_inverse = pca.inverse_transform(X_train_PCA)
-    X_train_PCA_inverse = pd.DataFrame(data=X_train_PCA_inverse, \
-                                    index=X_train.index)
-    anomalyScoresPCA = anomalyScores(X_train, X_train_PCA_inverse)
-    preds = pd.concat([y_train, anomalyScoresPCA], axis=1)
-    preds.columns = ['trueLabel', 'anomalyScore']
-    average_precision = \
-        average_precision_score(preds['trueLabel'],preds['anomalyScore'])
-    return average_precision
-now_precision = -1
-ind = 0
-for i in range(1,31):
-    tmp = n_PCA(i)
-    if now_precision <= tmp:
-        now_precision = tmp
-        ind = i
-n_components = ind
-whiten = False
+n_components = 27
+algorithm = 'parallel'
+whiten = True
+max_iter = 200
 random_state = 2018
 
-pca = PCA(n_components=n_components, whiten=whiten, \
-          random_state=random_state)
+fastICA = FastICA(n_components=n_components, \
+    algorithm=algorithm, whiten=whiten, max_iter=max_iter, \
+    random_state=random_state)
 
-X_train_PCA = pca.fit_transform(X_train)
-X_train_PCA = pd.DataFrame(data=X_train_PCA, index=X_train.index)
+X_train_fastICA = fastICA.fit_transform(X_train)
+X_train_fastICA = pd.DataFrame(data=X_train_fastICA, index=X_train.index)
 
-X_train_PCA_inverse = pca.inverse_transform(X_train_PCA) # 逆変換
-X_train_PCA_inverse = pd.DataFrame(data=X_train_PCA_inverse, \
-                                   index=X_train.index)
 
-scatterPlot(X_train_PCA, y_train, "PCA")
+# Independent Component Analysis on Test Set
+X_test_fastICA = fastICA.transform(X_test)
+X_test_fastICA = pd.DataFrame(data=X_test_fastICA, index=X_test.index)
+
+X_test_fastICA_inverse = fastICA.inverse_transform(X_test_fastICA)
+X_test_fastICA_inverse = pd.DataFrame(data=X_test_fastICA_inverse, \
+                                      index=X_test.index)
+
+scatterPlot(X_test_fastICA, y_test, "Independent Component Analysis")
 plt.show()
 
-anomalyScoresPCA = anomalyScores(X_train, X_train_PCA_inverse)
-preds = plotResults(y_train, anomalyScoresPCA, True)
+anomalyScoresFastICA = anomalyScores(X_test, X_test_fastICA_inverse)
+plotResults(y_test, anomalyScoresFastICA)
 plt.show()
-# 平均適合率69%
+# 平均適合率70%

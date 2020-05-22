@@ -92,52 +92,39 @@ def scatterPlot(xDF, yDF, algoName):
     ax.set_title("Separation of Observations using "+algoName)
 #---------------------------------------------------------------------------------------
 
-from sklearn.decomposition import PCA
-def n_PCA(n):
-    n_components = n
-    whiten = False
-    random_state = 2018
+# Mini-batch dictionary learning
+from sklearn.decomposition import MiniBatchDictionaryLearning
 
-    pca = PCA(n_components=n_components, whiten=whiten, \
-            random_state=random_state)
-
-    X_train_PCA = pca.fit_transform(X_train)
-    X_train_PCA = pd.DataFrame(data=X_train_PCA, index=X_train.index)
-
-    X_train_PCA_inverse = pca.inverse_transform(X_train_PCA)
-    X_train_PCA_inverse = pd.DataFrame(data=X_train_PCA_inverse, \
-                                    index=X_train.index)
-    anomalyScoresPCA = anomalyScores(X_train, X_train_PCA_inverse)
-    preds = pd.concat([y_train, anomalyScoresPCA], axis=1)
-    preds.columns = ['trueLabel', 'anomalyScore']
-    average_precision = \
-        average_precision_score(preds['trueLabel'],preds['anomalyScore'])
-    return average_precision
-now_precision = -1
-ind = 0
-for i in range(1,31):
-    tmp = n_PCA(i)
-    if now_precision <= tmp:
-        now_precision = tmp
-        ind = i
-n_components = ind
-whiten = False
+n_components = 28
+alpha = 1
+batch_size = 200
+n_iter = 10
 random_state = 2018
 
-pca = PCA(n_components=n_components, whiten=whiten, \
-          random_state=random_state)
+miniBatchDictLearning = MiniBatchDictionaryLearning( \
+    n_components=n_components, alpha=alpha, batch_size=batch_size, \
+    n_iter=n_iter, random_state=random_state)
 
-X_train_PCA = pca.fit_transform(X_train)
-X_train_PCA = pd.DataFrame(data=X_train_PCA, index=X_train.index)
+miniBatchDictLearning.fit(X_train)
+X_test_miniBatchDictLearning = miniBatchDictLearning.transform(X_test)
+X_test_miniBatchDictLearning = \
+    pd.DataFrame(data=X_test_miniBatchDictLearning, index=X_test.index)
 
-X_train_PCA_inverse = pca.inverse_transform(X_train_PCA) # 逆変換
-X_train_PCA_inverse = pd.DataFrame(data=X_train_PCA_inverse, \
-                                   index=X_train.index)
-
-scatterPlot(X_train_PCA, y_train, "PCA")
+scatterPlot(X_test_miniBatchDictLearning, y_test, \
+            "Mini-batch Dictionary Learning")
 plt.show()
 
-anomalyScoresPCA = anomalyScores(X_train, X_train_PCA_inverse)
-preds = plotResults(y_train, anomalyScoresPCA, True)
+# 再構成
+X_test_miniBatchDictLearning_inverse = \
+    np.array(X_test_miniBatchDictLearning). \
+    dot(miniBatchDictLearning.components_)
+
+X_test_miniBatchDictLearning_inverse = \
+    pd.DataFrame(data=X_test_miniBatchDictLearning_inverse, \
+                 index=X_test.index)
+
+anomalyScoresMiniBatchDictLearning = anomalyScores(X_test, \
+    X_test_miniBatchDictLearning_inverse)
+preds = plotResults(y_test, anomalyScoresMiniBatchDictLearning, True)
 plt.show()
-# 平均適合率69%
+# 平均適合率 51%
