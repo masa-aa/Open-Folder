@@ -1,48 +1,50 @@
 {
     "main function": {
-		"prefix": "ma",
-		"body": [
-			"#include <bits/stdc++.h>",
-			"using namespace std;",
+        "prefix": "ma",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
             "#define all(x) (x).begin(),(x).end()",
             "#define Sort(x) sort((x).begin(), (x).end())",
             "#define Reverse(x) reverse((x).begin(), (x).end())",
             "#define rep(i, n) for(int i = 0; i < (int)(n); i++)",
             "#define REP(i, m, n) for(int i = m; i < n; i++)",
             "#define INF INT_MAX",
-            "#define MOD 1000000007",
             "#define fcout cout << fixed << setprecision(15) //15桁まで表示",
-            "#define str string",
-            "typedef std::pair<int,int> pii;",
-            "typedef long long ll;",
-            "typedef unsigned long long ull;",
-            "typedef unsigned int ui;",
-            "typedef pair<ui,ui> puu;",
-            "typedef pair<int, int> P;",
-            "typedef vector<int> vi;",
+            "using str = string;",
+            "using ll = long long;",
+            "using ull = unsigned long long;",
+            "using ui = unsigned int;",
+            "using puu = pair<ui,ui>;",
+            "using P = pair<int, int>;",
+            "using vi = vector<int>;",
             "int gcd(int a,int b){return b?gcd(b,a%b):a;};",
             "int lcm(int a,int b){return a * b / gcd(a, b);};",
-            "int floor(int a,int b){return (a+b-1)/b;};",
+            "int floor(int a,int b){return a / gcd(a, b) * b;};",
             "int month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};",
             "template<class T>inline bool chmax(T& a,T b){if(a < b){a=b;return true;}return false;};",
             "template<class T>inline bool chmin(T& a,T b){if(a > b){a=b;return true;}return false;};",
+            "const ll mod = 1000000007;",
+            "const double PI = acos(-1.0);",
             "",
-			"int main() {",
-			"\t${1:/* code */}",
-			"",
-			"\t //return 0;",
-			"}"
-		],
-		"description": "basic main function"
-	},
-
+            "int main() {",
+            "\tcin.tie(0);",
+            "\tios::sync_with_stdio(false);",
+            "\tcout << setprecision(20) << setiosflags(ios::fixed);",
+            "\t${1:/* code */}",
+            "",
+            "\t //return 0;",
+            "}"
+        ],
+        "description": "basic main function"
+    },
     "~": {
         "prefix": "~",
         "body": [
             "~${1:typename}() {",
             "\t$0",
             "}",
-            ],
+        ],
         "description": "デストラクターに対するコード スニペット"
     },
     "class": {
@@ -62,7 +64,7 @@
             "",
             "${1:name}::~${1:name}() {",
             "}",
-            ],
+        ],
         "description": "クラスに対するコード スニペット"
     },
     "classi": {
@@ -78,7 +80,7 @@
             "\tprivate:",
             "\t\t${0:}",
             "};"
-            ],
+        ],
         "description": "インライン コンストラクター/デストラクターを含むクラスに対するコード スニペット"
     },
     "ctor": {
@@ -87,7 +89,7 @@
             "${1:typename}() {",
             "\t${0:}",
             "};"
-            ],
+        ],
         "description": "コンストラクターに対するコード スニペット"
     },
     "do": {
@@ -96,7 +98,7 @@
             "do {",
             "\t${0:}",
             "} while(${1:expression});"
-            ],
+        ],
         "description": "do...while ループに対するコード スニペット"
     },
     "else": {
@@ -105,7 +107,7 @@
             "else {",
             "\t${0:}",
             "}",
-            ],
+        ],
         "description": "else ステートメントに対するコード スニペット"
     },
     "enum": {
@@ -114,7 +116,7 @@
             "enum ${1:name} {",
             "\t${0:}",
             "}",
-            ],
+        ],
         "description": "列挙型に対するコード スニペット"
     },
     "enumclass": {
@@ -123,7 +125,7 @@
             "enum class${1:name} {",
             "\t${0:}",
             "}",
-            ],
+        ],
         "description": "列挙型クラスのコード スニペット"
     },
     "for": {
@@ -132,7 +134,7 @@
             "for (${1:type} ${2:index} = 0; ${2:index} < ${3:length}; ${2:index}++) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "for ループに対するコード スニペット"
     },
     "foreach": {
@@ -141,7 +143,7 @@
             "for  each (${1:type} ${2:indentifier} in ${3:collection}) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "foreach ステートメントに対するコード スニペット"
     },
     "forr": {
@@ -150,7 +152,7 @@
             "for (${1:type} ${2:index} = 0; ${2:index} > ${3:length}; ${2:index}--) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "逆向き for ループに対するコード スニペット"
     },
     "if": {
@@ -159,7 +161,7 @@
             "if(${1:true}) {",
             "\t${0:}",
             "}",
-            ],
+        ],
         "description": "if ステートメントに対するコード スニペット"
     },
     "ifelse": {
@@ -169,7 +171,7 @@
             "\t${0:}",
             "} else {",
             "}"
-            ],
+        ],
         "description": "if else ステートメントに対するコード スニペット"
     },
     "namespace": {
@@ -178,7 +180,7 @@
             "namespace ${1:name}) {",
             "\t${0:}",
             "}",
-            ],
+        ],
         "description": "名前空間に対するコード スニペット"
     },
     "pif": {
@@ -187,7 +189,7 @@
             "#if ${1:expression}",
             "\t${0:}",
             "#endif //${1:expression}",
-            ],
+        ],
         "description": "#if に対するコード スニペット"
     },
     "pifdef": {
@@ -196,7 +198,7 @@
             "#ifdef ${1:expression}",
             "\t${0:}",
             "#endif //${1:expression}",
-            ],
+        ],
         "description": "#ifdef に対するコード スニペット"
     },
     "pifndef": {
@@ -205,7 +207,7 @@
             "#ifndef ${1:expression}",
             "\t${0:}",
             "#endif //${1:expression}",
-            ],
+        ],
         "description": "#ifndef に対するコード スニペット"
     },
     "rfor": {
@@ -214,7 +216,7 @@
             "for (auto& ${1:variable} : ${2:range}) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "'範囲ベースの for' ループに対するコード スニペット"
     },
     "switch": {
@@ -224,7 +226,7 @@
             "\tdefault:",
             "\tbreak;${0:}",
             "}"
-            ],
+        ],
         "description": "switch ステートメントに対するコード スニペット"
     },
     "try": {
@@ -236,7 +238,7 @@
             "catch (const std::exception&) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "try catch に対するコード スニペット"
     },
     "union": {
@@ -245,7 +247,7 @@
             "union ${1:name} {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "共用体に対するコード スニペット"
     },
     "while": {
@@ -254,36 +256,36 @@
             "while (${1:expression}) {",
             "\t${0:}",
             "}"
-            ],
+        ],
         "description": "while ループに対するコード スニペット"
     },
     "Sort": {
         "prefix": "so",
         "body": [
-            "Sort (${1:index});" ,
-            ],
+            "Sort (${1:index});",
+        ],
         "description": "Sort ループに対するコード スニペット"
     },
     "Rsort": {
         "prefix": "rs",
         "body": [
-            "Sort (${1:index});" ,
+            "Sort (${1:index});",
             "Reverse (${1:index});",
-            ],
+        ],
         "description": "RSort ループに対するコード スニペット"
     },
     "cin": {
         "prefix": "cin",
         "body": [
-            "cin >> ${1:index};" ,
-            ],
+            "cin >> ${1:index};",
+        ],
         "description": "cinに対するコード スニペット"
     },
     "cout": {
         "prefix": "cout",
         "body": [
-            "cout << ${1:index} << endl;" ,
-            ],
+            "cout << ${1:index} << endl;",
+        ],
         "description": "coutに対するコード スニペット"
     }
 }
