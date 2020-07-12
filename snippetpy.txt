@@ -55,16 +55,11 @@
         "description": "print"
     },
     "ma": {
-        "prefix": "wrong",
+        "prefix": "omazinai",
         "body": [
-            "'''",
-            "　 ∧_,,∧    究極奥義「WAがACになーれ！！」",
-            "　（`・ω・)つ━☆・*。",
-            "　⊂　　 ノ 　　　・゜+.",
-            "　 し’´Ｊ　　*・ ",
-            "'''",
-            "import sys",
-            "input = sys.stdin.readline",
+            "import os",
+            "import io",
+            "input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline"
         ],
         "description": "おまじない"
     },
@@ -208,5 +203,59 @@
             "from random import randint",
         ],
         "description": "random"
+    },
+    "numba": {
+        "prefix": "numba",
+        "body": [
+            "from numba import jit, i8, void, b1, u1, f8",
+            "# i8:int, void:void, b1:bool, u1:string, f8:float, i8[:]:int配列, f8[:,:]:float二次元配列",
+            "@jit(${1:}(${2:}))",
+        ],
+        "description": "numba",
+    },
+    "marathon": {
+        "prefix": "marathon",
+        "body": [
+            "import sys",
+            "from random import randint",
+            "from time import time",
+            "start = time()",
+            "sys.setrecursionlimit(1000000000)",
+            "input = sys.stdin.readline",
+            "def eval_score():",
+            "",
+            "    return ",
+            "",
+        ],
+        "description": "marathon",
+    },
+    "main": {
+        "prefix": "main",
+        "body": [
+            "if __name__ == '__main__':",
+        ],
+        "description": "main"
+    },
+    "mathpypy": {
+        "prefix": "mathpypy",
+        "body": [
+            "from math import factorial, gcd, exp, log, log2, log10, sqrt, pi, acos, asin, atan ,atan2, cos, sin, tan",
+            "from functools import reduce",
+            "def gcd_list(numbers):",
+            "   return reduce(gcd, numbers)",
+            "def lcm(x, y):",
+            "   return (x * y) // gcd(x, y)",
+            "def lcm_list(numbers):",
+            "   return reduce(lcm, numbers, 1)",
+        ],
+        "description": "mathpypy"
+    },
+    "time": {
+        "prefix": "time",
+        "body": [
+            "from time import time",
+            "start = time()",
+        ],
+        "description": "time"
     },
 }

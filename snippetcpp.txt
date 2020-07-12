@@ -11,6 +11,7 @@
             "#define REP(i, m, n) for(int i = m; i < n; i++)",
             "#define INF INT_MAX",
             "#define fcout cout << fixed << setprecision(15) //15桁まで表示",
+            "#define en '\n'",
             "using str = string;",
             "using ll = long long;",
             "using ull = unsigned long long;",
@@ -284,7 +285,7 @@
     "cout": {
         "prefix": "cout",
         "body": [
-            "cout << ${1:index} << endl;",
+            "cout << ${1:index} << en;",
         ],
         "description": "coutに対するコード スニペット"
     }
