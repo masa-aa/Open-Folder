@@ -109,49 +109,47 @@ def plotResults(trueLabels, anomalyScores, returnPreds = False):
     if returnPreds==True:
         return preds, average_precision
 #---------------------------------------------------------------------------------
-with tf.device("/cpu:0"):
 
-    # 10 runs - We will capture mean of average precision
-    test_scores = []
-    for i in range(0,10):
-        # Call neural network API
-        model = Sequential()
+# 10 runs - We will capture mean of average precision
+test_scores = []
+for i in range(0,10):
+    # Call neural network API
+    model = Sequential()
 
-        # Apply linear activation function to input layer
-        # Generate hidden layer with 29 nodes, the same as the input layer
-        model.add(Dense(units=29, activation='linear',input_dim=29))
+    # Apply linear activation function to input layer
+    # Generate hidden layer with 29 nodes, the same as the input layer
+    model.add(Dense(units=29, activation='linear',input_dim=29))
 
-        # Apply linear activation function to hidden layer
-        # Generate output layer with 29 nodes
-        model.add(Dense(units=29, activation='linear'))
+    # Apply linear activation function to hidden layer
+    # Generate output layer with 29 nodes
+    model.add(Dense(units=29, activation='linear'))
 
-        # Compile the model
-        model.compile(optimizer='adam',
-                    loss='mean_squared_error',
-                    metrics=['accuracy'])
+    # Compile the model
+    model.compile(optimizer='adam',
+                  loss='mean_squared_error',
+                  metrics=['accuracy']) # 自動で評価関数を選んでくれる
 
-        # Train the model
-        num_epochs = 10
-        batch_size = 32
+    # Train the model
+    num_epochs = 10
+    batch_size = 32
 
-        history = model.fit(x=X_train_AE, y=X_train_AE,
-                            epochs=num_epochs,
-                            batch_size=batch_size,
-                            shuffle=True,
-                            validation_data=(X_train_AE, X_train_AE),
-                            verbose=1)
+    history = model.fit(x=X_train_AE, y=X_train_AE,
+                        epochs=num_epochs,
+                        batch_size=batch_size,
+                        shuffle=True,
+                        validation_data=(X_train_AE, X_train_AE),
+                        verbose=1)
 
-        # Evaluate on test set
-        predictions = model.predict(X_test, verbose=1)
-        anomalyScoresAE = anomalyScores(X_test, predictions)
-        preds, avgPrecision = plotResults(y_test, anomalyScoresAE, True)
-        test_scores.append(avgPrecision)
-        model.reset_states()
+    # Evaluate on test set
+    predictions = model.predict(X_test, verbose=1)
+    anomalyScoresAE = anomalyScores(X_test, predictions)
+    preds, avgPrecision = plotResults(y_test, anomalyScoresAE, True)
+    test_scores.append(avgPrecision)
+    model.reset_states()
 
-    print(f'Mean average precision over 10 runs: {np.mean(test_scores)}')
-    [round(x,4) for x in test_scores]
 
-    # result
-    print(f'Mean average precision over 10 runs:   {round(np.mean(test_scores),4)}')
-    print(f'Coefficient of variation over 10 runs: {round(np.std(test_scores)/np.mean(test_scores),4)}')
-    print([round(x,4) for x in test_scores])
+# Results
+print("Mean average precision over 10 runs: ", np.mean(test_scores))
+print("Coefficient of variation over 10 runs: ", np.std(test_scores)/ \
+                                                np.mean(test_scores))
+print(test_scores)
