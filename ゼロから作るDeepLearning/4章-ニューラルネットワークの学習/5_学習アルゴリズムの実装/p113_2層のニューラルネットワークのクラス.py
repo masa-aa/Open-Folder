@@ -1,5 +1,6 @@
 import sys, os
-sys.path.append('c:\\Users\\masay\\OneDrive\\ドキュメント\\project_GALLERIA\\ゼロから作るDeepLearning')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append("../..")
 import numpy as np
 from common.functions import *
 from common.gradient import numerical_gradient
@@ -78,6 +79,6 @@ if __name__ == '__main__':
     t = np.random.randn(100, 10)
 
     grads = net.numerical_gradient(x, t)
-    
+
     print(grads['W1'].shape, grads['b1'].shape, grads['W2'].shape, grads['b2'].shape)
     

@@ -1,0 +1,27 @@
+Training Log Loss: 0.0001
+CV Log Loss: 0.001
+Training Log Loss: 0.0
+CV Log Loss: 0.0004
+Training Log Loss: 0.0001
+CV Log Loss: 0.001
+Training Log Loss: 0.0
+CV Log Loss: 0.0002
+Training Log Loss: 0.0001
+CV Log Loss: 0.0008
+LightGBM Gradient Boosting Log Loss: 0.0007
+0.8299
+featuresImportance
+        featImportance
+V26           0.079530
+Amount        0.074195
+V1            0.067967
+V13           0.066570
+V11           0.043073
+...                ...
+27            0.001261
+17            0.001106
+33            0.001087
+39            0.000815
+1             0.000039
+
+[69 rows x 1 columns]

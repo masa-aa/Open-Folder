@@ -17,7 +17,7 @@ if __name__ == '__main__':
     load_network = pickle.load(open("ゼロから作るDeepLearning/dataset/network.sav", 'rb'))
 
     # import image
-    img = np.array(Image.open('ゼロから作るDeepLearning/dataset/seven.png').convert('L')).flatten() / 255.0
+    img = np.array(Image.open('ゼロから作るDeepLearning/dataset/four.png').convert('L')).flatten() / 255.0
     
     # predict
     print(np.argmax(load_network.predict(img)))
