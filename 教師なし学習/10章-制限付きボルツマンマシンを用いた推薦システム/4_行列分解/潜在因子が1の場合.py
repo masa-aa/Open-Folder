@@ -77,3 +77,37 @@ actual_valid = ratings_valid[ratings_valid.nonzero()].flatten()
 
 #------------------------------------------------------------------------
 # 行列分解
+# 潜在因子1 (m,n) -> (m,1)*(1,n)
+
+n_latent_factors = 1
+
+user_input = Input(shape=[1], name='user')
+user_embedding = Embedding(input_dim=n_users + 1, 
+                           output_dim=n_latent_factors, 
+                           name='user_embedding')(user_input)
+user_vec = Flatten(name='flatten_users')(user_embedding)
+
+movie_input = Input(shape=[1], name='movie')
+movie_embedding = Embedding(input_dim=n_movies + 1, 
+                            output_dim=n_latent_factors,
+                            name='movie_embedding')(movie_input)
+movie_vec = Flatten(name='flatten_movies')(movie_embedding)
+
+product = dot([movie_vec, user_vec], axes=1)
+model = Model(inputs=[user_input, movie_input], outputs=product)
+# inputsとproductの平均最小2乗和を最小化する
+model.compile('adam', 'mean_squared_error')
+
+history = model.fit(x=[X_train.newUserId, X_train.newMovieId], 
+                    y=X_train.rating, epochs=100, 
+                    validation_data=([X_valid.newUserId, X_valid.newMovieId], X_valid.rating), 
+                    verbose=1)
+
+pd.Series(history.history['val_loss'][10:]).plot(logy=False)
+plt.xlabel("Epoch")
+plt.ylabel("Validation Error")
+
+file_name = '教師なし教科書/10章-制限付きボルツマンマシンを用いた推薦システム/4_行列分解/result/'
+plt.savefig(file_name + 'figure.png')
+with open(file_name + 'result.txt', 'w') as f:
+    print(f"Minimum MSE: {round(min(history.history['val_loss']),3)}", file=f)

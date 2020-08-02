@@ -1,0 +1,1 @@
+Minimum MSE: 0.796

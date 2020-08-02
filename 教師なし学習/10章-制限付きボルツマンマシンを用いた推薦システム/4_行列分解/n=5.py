@@ -75,43 +75,38 @@ for (X,ratings) in [(X_train,ratings_train),(X_valid,ratings_valid),(X_test,rati
 # flatten
 actual_valid = ratings_valid[ratings_valid.nonzero()].flatten()
 
-# ベースライン実験
+#------------------------------------------------------------------------
+# 行列分解
+# 潜在因子5 (m,n) -> (m,5)*(5,n)
 
-# experiment 1
-# 格付けの平均値である3.5を予測値とした場合
-pred_valid = np.zeros((len(X_valid), 1))
-# 0のもの (すべて)を3.5にする
-pred_valid[pred_valid == 0] = 3.5
+n_latent_factors = 5
 
-naive_prediction = mean_squared_error(pred_valid, actual_valid)
-print(f'Mean squared error using naive prediction: {round(naive_prediction,2)}')
-# 1.055
+user_input = Input(shape=[1], name='user')
+user_embedding = Embedding(input_dim=n_users + 1, 
+                           output_dim=n_latent_factors, 
+                           name='user_embedding')(user_input)
+user_vec = Flatten(name='flatten_users')(user_embedding)
 
-# experiment 2
-# そのユーザーによる格付けの平均値を他のすべての映画の予測値として用いた場合
+movie_input = Input(shape=[1], name='movie')
+movie_embedding = Embedding(input_dim=n_movies + 1, 
+                            output_dim=n_latent_factors,
+                            name='movie_embedding')(movie_input)
+movie_vec = Flatten(name='flatten_movies')(movie_embedding)
 
-ratings_valid_pred = np.zeros((n_users, n_movies))
-i = 0
-for row in ratings_train:
-    # 各々平均を埋め込む
-    ratings_valid_pred[i][ratings_valid_pred[i]==0] = np.mean(row[row>0])
-    i += 1
+product = dot([movie_vec, user_vec], axes=1)
+model = Model(inputs=[user_input, movie_input], outputs=product)
+model.compile('adam', 'mean_squared_error')
 
-pred_valid = ratings_valid_pred[ratings_valid.nonzero()].flatten()
-user_average = mean_squared_error(pred_valid, actual_valid)
-print(f'Mean squared error using user average: {round(user_average,3)}')
-# 0.909
+history = model.fit(x=[X_train.newUserId, X_train.newMovieId], 
+                    y=X_train.rating, epochs=100, 
+                    validation_data=([X_valid.newUserId, X_valid.newMovieId], X_valid.rating), 
+                    verbose=1)
 
-# exiperiment 3
-# 対象の映画に対するほかのユーザーの格付けの平均値を予測値とする.
-ratings_valid_pred = np.zeros((n_users, n_movies)).T
-i = 0
-for row in ratings_train.T:
-    ratings_valid_pred[i][ratings_valid_pred[i] == 0] = np.mean(row[row > 0])
-    i += 1
+pd.Series(history.history['val_loss'][10:]).plot(logy=False)
+plt.xlabel("Epoch")
+plt.ylabel("Validation Error")
 
-ratings_valid_pred = ratings_valid_pred.T
-pred_valid = ratings_valid_pred[ratings_valid.nonzero()].flatten()
-movie_average = mean_squared_error(pred_valid, actual_valid)
-print(f'Mean squared error using movie average: {round(movie_average,3)}')
-# 0.914
+file_name = '教師なし教科書/10章-制限付きボルツマンマシンを用いた推薦システム/4_行列分解/result_n=5/'
+plt.savefig(file_name + 'figure.png')
+with open(file_name + 'result.txt', 'w') as f:
+    print(f"Minimum MSE: {round(min(history.history['val_loss']),3)}", file=f)

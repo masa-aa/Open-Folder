@@ -1,0 +1,1 @@
+Mean squared error using RBM prediction: 9.33
