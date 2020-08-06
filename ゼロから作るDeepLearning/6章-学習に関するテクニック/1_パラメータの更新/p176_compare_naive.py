@@ -21,6 +21,7 @@ grads['x'], grads['y'] = 0, 0
 
 
 optimizers = {}
+optimizers["SGD"] = SGD(lr=0.95)
 optimizers["Momentum"] = Momentum(lr=0.1)
 optimizers["AdaGrad"] = AdaGrad(lr=1.5)
 optimizers["Adam"] = Adam(lr=0.3)
