@@ -54,7 +54,7 @@
 		"prefix": "lim",
 		"body": [
 			"import sys",
-			"sys.setrecursionlimit(1000000000)",
+			"sys.setrecursionlimit(10000000)",
 			"input = sys.stdin.readline"
 		],
 		"description": "再帰するとき"
@@ -207,7 +207,7 @@
 			"from random import randint",
 			"from time import time",
 			"start = time()",
-			"sys.setrecursionlimit(1000000000)",
+			"sys.setrecursionlimit(10000000)",
 			"input = sys.stdin.readline",
 			"def eval_score():",
 			"",
@@ -257,7 +257,7 @@
 	},
 	"deepcopy": {
 		"prefix": "deepcopy",
-		"body": "from copy import deepcopy",
+		"body": "from copy import copy, deepcopy",
 		"description": "deepcopy"
 	},
 	"LIS": {
@@ -280,9 +280,9 @@
 		"body": "#テーブル作るやつ 前処理:O(n*log(mod)), comb(n, k):O(1)\r\n\r\nmod = 10**9+7 #998244353 # 変える\r\ndef table():\r\n    k = 2 * 10 ** 5 + 5  # 変える\r\n    fac = [1] * k\r\n    finv = [1] * k\r\n    inv = [0] * k\r\n    inv[1] = 1\r\n    for i in range(2, k):\r\n        fac[i] = fac[i - 1] * i % mod\r\n        inv[i] = mod - inv[mod % i] * (mod // i) % mod\r\n        finv[i] = finv[i - 1] * inv[i] % mod\r\n    return fac, finv\r\nfac, finv = table()\r\ndef comb(n, k):\r\n    if n < k:\r\n        return 0\r\n    if n < 0 or k < 0:\r\n        return 0\r\n    return fac[n] * (finv[k] * finv[n - k] % mod) % mod",
 		"description": "mod組み合わせ"
 	},
-	"Binary Indexed Tree": {
+	"Binary_Indexed_Tree": {
 		"prefix": "BIT",
-		"body": "class BIT:\r\n    def __init__(self, n):\r\n        #A1 ... AnのBIT(1-indexed)\r\n        self.BIT = [0] * (n + 1)\r\n        self.n = n\r\n\r\n    #A1 ~ Aiまでの和 O(logN)\r\n    def query(self, idx):\r\n        res_sum = 0\r\n        while idx > 0:\r\n            res_sum += self.BIT[idx]\r\n            idx -= idx & (-idx)\r\n        return res_sum\r\n\r\n    #Ai += x O(logN)\r\n    def add(self, idx, x):\r\n        while idx <= self.n:\r\n            self.BIT[idx] += x\r\n            idx += idx&(-idx)\r\n        return",
-		"description": "Binary Indexed Tree"
+		"body": "class Binary_Indexed_Tree:\r\n    def __init__(self, n):\r\n        \"\"\"\r\n        :param n: 最大の要素数\r\n        \"\"\"\r\n        self.n = n\r\n        self.tree = [0] * (n + 1)\r\n        self.depth = n.bit_length() - 1\r\n \r\n    def sum(self, i):\r\n        \"\"\" 区間[0,i) の総和を求める \"\"\"\r\n        s = 0\r\n        i -= 1\r\n        while i >= 0:\r\n            s += self.tree[i]\r\n            i = (i & (i + 1) )- 1\r\n        return s\r\n \r\n    def built(self, array):\r\n        \"\"\" array を初期値とするBITを構築 \"\"\"\r\n        for i, a in enumerate(array):\r\n            self.add(i, a)\r\n \r\n    def add(self, i, x):\r\n        \"\"\" i 番目の要素に x を足す \"\"\"\r\n        while i < self.n:\r\n            self.tree[i] += x\r\n            i |= i + 1\r\n \r\n    def get(self, i, j):\r\n        \"\"\" 部分区間和 [i, j) \"\"\"\r\n        if i == 0:\r\n            return self.sum(j)\r\n        return self.sum(j) - self.sum(i)\r\n \r\n    def lower_bound(self, x, equal=False):\r\n        \"\"\" (a0+a1+...+ai < x となる最大の i, その時の a0+a1+...+ai )\r\n             a0+a1+...+ai <= x としたい場合は equal = True\r\n             二分探索であるため、ai>=0 を満たす必要がある\"\"\"\r\n        sum_ = 0\r\n        pos = -1  # 1-indexed の時は pos = 0\r\n        if equal:\r\n            for i in range(self.depth, -1, -1):\r\n                k = pos + (1 << i)\r\n                if k < self.n and sum_ + self.tree[k] <= x: # 1-indexed の時は k <= self.n\r\n                    sum_ += self.tree[k]\r\n                    pos += 1 << i\r\n        else:\r\n            for i in range(self.depth, -1, -1):\r\n                k = pos + (1 << i)\r\n                if k < self.n and sum_ + self.tree[k] < x:  # 1-indexed の時は k <= self.n\r\n                    sum_ += self.tree[k]\r\n                    pos += 1 << i\r\n\r\n        return pos, sum_\r\n \r\n    def __getitem__(self, i):\r\n        \"\"\" [a0, a1, a2, ...] \"\"\"\r\n        return self.get(i, i+1)\r\n \r\n    def __iter__(self):\r\n        \"\"\" [a0, a1, a2, ...] \"\"\"\r\n        for i in range(self.n):\r\n            yield self.get(i, i+1)\r\n \r\n    def __str__(self):\r\n        text1 = \" \".join([\"element:            \"] + list(map(str, self)))\r\n        text2 = \" \".join([\"cumsum(1-indexed):  \"] + list(str(self.sum(i)) for i in range(1, self.n + 1)))\r\n        return \"\\n\".join((text1, text2))\r\n\r\n\r\n",
+		"description": "Binary_Indexed_Tree"
 	}
 }
