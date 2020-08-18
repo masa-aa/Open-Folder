@@ -30,6 +30,10 @@ trainer.train()
 network.save_params("params.pkl")
 print("Saved Network Parameters!")
 
+
+print(trainer.train_acc_list)
+print(trainer.test_acc_list)
+
 # グラフの描画
 markers = {'train': 'o', 'test': 's'}
 x = np.arange(max_epochs)

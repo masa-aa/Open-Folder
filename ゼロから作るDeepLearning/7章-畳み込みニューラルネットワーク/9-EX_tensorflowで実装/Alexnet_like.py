@@ -27,7 +27,7 @@ def my_net():
     model.add(Input(shape=(28, 28)))
     model.add(Reshape((28, 28, 1)))
     # 1
-    model.add(Conv2D(16, 3, activation='relu', bias_initializer='ones'))
+    model.add(Conv2D(16, 3, activation='relu', bias_initializer='zeros'))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(1, 1)))
     model.add(BatchNormalization())
 
@@ -42,18 +42,20 @@ def my_net():
     model.add(Conv2D(32, 3, bias_initializer='ones'))
     model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
     model.add(BatchNormalization())
-    
+
     # 全結合層
     model.add(Flatten())
-    model.add(Dense(784))
+    model.add(Dense(288, activation='relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(784))
+    model.add(Dense(288))
     model.add(Dropout(0.5))
 
     model.add(Dense(10, activation='softmax'))
 
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['acc'])
     return model
+
+
 model = my_net()
 # print(model.summary())
 f_model = './model'
@@ -69,8 +71,8 @@ print('Test score:', score[0])
 print('Test accuracy:', score[1])
 print('save the architecture of a model')
 json_string = model.to_json()
-open(os.path.join(f_model,'cnn_model.json'), 'w').write(json_string)
+open(os.path.join(f_model, 'cnn_model.json'), 'w').write(json_string)
 yaml_string = model.to_yaml()
-open(os.path.join(f_model,'cnn_model.yaml'), 'w').write(yaml_string)
+open(os.path.join(f_model, 'cnn_model.yaml'), 'w').write(yaml_string)
 print('save weights')
-model.save_weights(os.path.join(f_model,'cnn_model_weights.hdf5'))
+model.save_weights(os.path.join(f_model, 'cnn_model_weights.hdf5'))
