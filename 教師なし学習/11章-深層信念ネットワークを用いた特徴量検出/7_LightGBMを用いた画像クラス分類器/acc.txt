@@ -1,0 +1,4 @@
+Supervised-Only Accuracy:  0.9437
+DBN-Based Solution Accuracy:  0.9551
+
+Supervised train=50000:  0.9797
