@@ -1,0 +1,42 @@
+Adjusted Rand Index on Training Set: 0.5553639462811412
+Adjusted Rand Index on Test Set: 0.5301670526070555
+
+
+Predicted Cluster  0.0
+2.0    127
+3.0      9
+4.0      6
+5.0      1
+Name: actual, dtype: int64
+
+Predicted Cluster  1.0
+2.0    197
+1.0     18
+4.0      9
+3.0      3
+Name: actual, dtype: int64
+
+Predicted Cluster  2.0
+4.0    18
+2.0    18
+5.0     3
+1.0     2
+3.0     2
+Name: actual, dtype: int64
+
+Predicted Cluster  3.0
+1.0    130
+3.0      3
+4.0      2
+5.0      1
+2.0      1
+Name: actual, dtype: int64
+
+Predicted Cluster  4.0
+1.0    442
+3.0      4
+4.0      3
+2.0      1
+Name: actual, dtype: int64
+
+Count of Non-Primary Points:  86

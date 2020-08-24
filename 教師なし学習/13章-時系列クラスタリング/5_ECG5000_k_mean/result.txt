@@ -1,0 +1,2 @@
+Adjusted Rand Index on Training Set: 0.5063464656715959
+Adjusted Rand Index on Test Set: 0.4864981997585834

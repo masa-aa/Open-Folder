@@ -1,0 +1,611 @@
+Dataset  1
+ACSF1
+Adjusted Rand Index on Training Set: 0.05277735435974887
+Adjusted Rand Index on Test Set: 0.08571236649425673
+
+Dataset  2
+Adiac
+Adjusted Rand Index on Training Set: 0.046457360143610384
+Adjusted Rand Index on Test Set: 0.046929058002876826
+
+Dataset  3
+This dataset contains 'NaN'.
+
+Dataset  4
+This dataset contains 'NaN'.
+
+Dataset  5
+This dataset contains 'NaN'.
+
+Dataset  6
+ArrowHead
+Adjusted Rand Index on Training Set: 0.18404864150543349
+Adjusted Rand Index on Test Set: 0.1042186754575722
+
+Dataset  7
+Beef
+Adjusted Rand Index on Training Set: 0.08069432684165961
+Adjusted Rand Index on Test Set: -0.010600706713780944
+
+Dataset  8
+BeetleFly
+Adjusted Rand Index on Training Set: 0.18802811078958245
+Adjusted Rand Index on Test Set: 0.4010695187165775
+
+Dataset  9
+BirdChicken
+Adjusted Rand Index on Training Set: 0.06500206696982222
+Adjusted Rand Index on Test Set: 0.10160427807486627
+
+Dataset  10
+BME
+Adjusted Rand Index on Training Set: 0.13386009947395291
+Adjusted Rand Index on Test Set: 0.055414224090255516
+
+Dataset  11
+Car
+Adjusted Rand Index on Training Set: 0.09488043905854794
+Adjusted Rand Index on Test Set: 0.011605544134226398
+
+Dataset  12
+CBF
+Adjusted Rand Index on Training Set: 0.24505382059499864
+Adjusted Rand Index on Test Set: 0.2700781062242623
+
+Dataset  13
+Chinatown
+Adjusted Rand Index on Training Set: 0.28413157525427796
+Adjusted Rand Index on Test Set: 0.2868763657063112
+
+Dataset  14
+ChlorineConcentration
+Adjusted Rand Index on Training Set: 0.00036199252476780457
+Adjusted Rand Index on Test Set: -0.0004717768599045352
+
+Dataset  15
+CinCECGTorso
+Adjusted Rand Index on Training Set: 0.2216347520528618
+Adjusted Rand Index on Test Set: 0.2154518569950593
+
+Dataset  16
+Coffee
+Adjusted Rand Index on Training Set: 0.34058453168212416
+Adjusted Rand Index on Test Set: 0.3225806451612903
+
+Dataset  17
+Computers
+Adjusted Rand Index on Training Set: 0.006915234668753779
+Adjusted Rand Index on Test Set: 0.008888888888888889
+
+Dataset  18
+CricketX
+Adjusted Rand Index on Training Set: 0.05246009614020756
+Adjusted Rand Index on Test Set: 0.07554563435600785
+
+Dataset  19
+CricketY
+Adjusted Rand Index on Training Set: 0.09761794151403053
+Adjusted Rand Index on Test Set: 0.05822956505828326
+
+Dataset  20
+CricketZ
+Adjusted Rand Index on Training Set: 0.07231051118533754
+Adjusted Rand Index on Test Set: 0.06185526419814304
+
+Dataset  21
+Crop
+Adjusted Rand Index on Training Set: 0.13676927410235584
+Adjusted Rand Index on Test Set: 0.141563452370543
+
+Dataset  22
+DiatomSizeReduction
+Adjusted Rand Index on Training Set: 0.8370404673537428
+Adjusted Rand Index on Test Set: 0.8091542717539699
+
+Dataset  23
+DistalPhalanxOutlineAgeGroup
+Adjusted Rand Index on Training Set: 0.26282183532854003
+Adjusted Rand Index on Test Set: 0.22708010226779612
+
+Dataset  24
+DistalPhalanxOutlineCorrect
+Adjusted Rand Index on Training Set: 0.041055994861416034
+Adjusted Rand Index on Test Set: 0.0559669977593656
+
+Dataset  25
+DistalPhalanxTW
+Adjusted Rand Index on Training Set: 0.4226842219434363
+Adjusted Rand Index on Test Set: 0.37700628209092935
+
+Dataset  26
+This dataset contains 'NaN'.
+
+Dataset  27
+This dataset contains 'NaN'.
+
+Dataset  28
+This dataset contains 'NaN'.
+
+Dataset  29
+Earthquakes
+Adjusted Rand Index on Training Set: -0.0026503582742856673
+Adjusted Rand Index on Test Set: 0.0020830188123441987
+
+Dataset  30
+ECG200
+Adjusted Rand Index on Training Set: 0.3904614929743022
+Adjusted Rand Index on Test Set: 0.21033825631252978
+
+Dataset  31
+ECG5000
+Adjusted Rand Index on Training Set: 0.42370227278864836
+Adjusted Rand Index on Test Set: 0.40711257516778215
+
+Dataset  32
+ECGFiveDays
+Adjusted Rand Index on Training Set: 0.008548019517054571
+Adjusted Rand Index on Test Set: -0.004703233941276993
+
+Dataset  33
+ElectricDevices
+Adjusted Rand Index on Training Set: 0.1620360043703032
+Adjusted Rand Index on Test Set: 0.15798321574875532
+
+Dataset  34
+EOGHorizontalSignal
+Adjusted Rand Index on Training Set: 0.15094172040908702
+Adjusted Rand Index on Test Set: 0.19630538248356866
+
+Dataset  35
+EOGVerticalSignal
+Adjusted Rand Index on Training Set: 0.11307405819617469
+Adjusted Rand Index on Test Set: 0.11026493005414575
+
+Dataset  36
+EthanolLevel
+Adjusted Rand Index on Training Set: 0.004004084446591235
+Adjusted Rand Index on Test Set: 0.005100507132003759
+
+Dataset  37
+FaceAll
+Adjusted Rand Index on Training Set: 0.10942786985462828
+Adjusted Rand Index on Test Set: 0.11374151903900737
+
+Dataset  38
+FaceFour
+Adjusted Rand Index on Training Set: 0.3417578017903537
+Adjusted Rand Index on Test Set: 0.25717955775759244
+
+Dataset  39
+FacesUCR
+Adjusted Rand Index on Training Set: 0.10565103342140884
+Adjusted Rand Index on Test Set: 0.1179436283863937
+
+Dataset  40
+FiftyWords
+Adjusted Rand Index on Training Set: 0.11210738091994632
+Adjusted Rand Index on Test Set: 0.10825672436499632
+
+Dataset  41
+Fish
+Adjusted Rand Index on Training Set: 0.1398908498934965
+Adjusted Rand Index on Test Set: 0.10833635992362442
+
+Dataset  42
+FordA
+Adjusted Rand Index on Training Set: 0.00848189739683304
+Adjusted Rand Index on Test Set: 0.003605839118210066
+
+Dataset  43
+FordB
+Adjusted Rand Index on Training Set: 0.00021515257817613414
+Adjusted Rand Index on Test Set: -6.814041382748477e-05
+
+Dataset  44
+FreezerRegularTrain
+Adjusted Rand Index on Training Set: 0.1508853438590958
+Adjusted Rand Index on Test Set: 0.18631864103909684
+
+Dataset  45
+FreezerSmallTrain
+Adjusted Rand Index on Training Set: 0.16114868353756173
+Adjusted Rand Index on Test Set: 0.17907098025066515
+
+Dataset  46
+Fungi
+Adjusted Rand Index on Training Set: 0.34601823973869195
+Adjusted Rand Index on Test Set: 0.31534264735875994
+
+Dataset  47
+This dataset contains 'NaN'.
+
+Dataset  48
+This dataset contains 'NaN'.
+
+Dataset  49
+This dataset contains 'NaN'.
+
+Dataset  50
+This dataset contains 'NaN'.
+
+Dataset  51
+This dataset contains 'NaN'.
+
+Dataset  52
+GunPoint
+Adjusted Rand Index on Training Set: 0.07264059051911204
+Adjusted Rand Index on Test Set: 0.12170838189684124
+
+Dataset  53
+GunPointAgeSpan
+Adjusted Rand Index on Training Set: 0.18543935945390527
+Adjusted Rand Index on Test Set: 0.16037511614339117
+
+Dataset  54
+GunPointMaleVersusFemale
+Adjusted Rand Index on Training Set: 0.1524354113996632
+Adjusted Rand Index on Test Set: 0.1848486158234824
+
+Dataset  55
+GunPointOldVersusYoung
+Adjusted Rand Index on Training Set: 0.12426457035703992
+Adjusted Rand Index on Test Set: 0.13038382359602996
+
+Dataset  56
+Ham
+Adjusted Rand Index on Training Set: 0.0066130332033649
+Adjusted Rand Index on Test Set: 0.017933636666296722
+
+Dataset  57
+HandOutlines
+Adjusted Rand Index on Training Set: 0.20585079385090616
+Adjusted Rand Index on Test Set: 0.16010422635928878
+
+Dataset  58
+Haptics
+Adjusted Rand Index on Training Set: 0.060240985859996835
+Adjusted Rand Index on Test Set: 0.00767218554107563
+
+Dataset  59
+Herring
+Adjusted Rand Index on Training Set: 0.007414597509402057
+Adjusted Rand Index on Test Set: -0.01917183379659322
+
+Dataset  60
+HouseTwenty
+Adjusted Rand Index on Training Set: 0.09013810123065358
+Adjusted Rand Index on Test Set: 0.14934681284054355
+
+Dataset  61
+InlineSkate
+Adjusted Rand Index on Training Set: 0.009033966792793856
+Adjusted Rand Index on Test Set: -0.002742213208686086
+
+Dataset  62
+InsectEPGRegularTrain
+Adjusted Rand Index on Training Set: 0.10550718957761708
+Adjusted Rand Index on Test Set: 0.10284899215494912
+
+Dataset  63
+InsectEPGSmallTrain
+Adjusted Rand Index on Training Set: 0.10906988909343078
+Adjusted Rand Index on Test Set: 0.10381870614430495
+
+Dataset  64
+InsectWingbeatSound
+Adjusted Rand Index on Training Set: 0.33288521115335806
+Adjusted Rand Index on Test Set: 0.31619907735057934
+
+Dataset  65
+ItalyPowerDemand
+Adjusted Rand Index on Training Set: 0.4974769510257855
+Adjusted Rand Index on Test Set: 0.5446471302726271
+
+Dataset  66
+LargeKitchenAppliances
+Adjusted Rand Index on Training Set: 0.0185718910804747
+Adjusted Rand Index on Test Set: 0.02894027209079221
+
+Dataset  67
+Lightning2
+Adjusted Rand Index on Training Set: 0.054883747681424074
+Adjusted Rand Index on Test Set: 0.02
+
+Dataset  68
+Lightning7
+Adjusted Rand Index on Training Set: 0.21162902833507102
+Adjusted Rand Index on Test Set: 0.15654620212075307
+
+Dataset  69
+Mallat
+Adjusted Rand Index on Training Set: 0.5938945510335586
+Adjusted Rand Index on Test Set: 0.6133720976675188
+
+Dataset  70
+Meat
+Adjusted Rand Index on Training Set: 0.49350390232096053
+Adjusted Rand Index on Test Set: 0.7855277881387542
+
+Dataset  71
+MedicalImages
+Adjusted Rand Index on Training Set: 0.03286259400060184
+Adjusted Rand Index on Test Set: 0.05348470272906953
+
+Dataset  72
+This dataset contains 'NaN'.
+
+Dataset  73
+MiddlePhalanxOutlineAgeGroup
+Adjusted Rand Index on Training Set: 0.25964574683555286
+Adjusted Rand Index on Test Set: 0.2468019153808786
+
+Dataset  74
+MiddlePhalanxOutlineCorrect
+Adjusted Rand Index on Training Set: 0.023587267801959525
+Adjusted Rand Index on Test Set: 0.03843326978161363
+
+Dataset  75
+MiddlePhalanxTW
+Adjusted Rand Index on Training Set: 0.34302185438060384
+Adjusted Rand Index on Test Set: 0.3054811520534582
+
+Dataset  76
+MixedShapesRegularTrain
+Adjusted Rand Index on Training Set: 0.4728912407706621
+Adjusted Rand Index on Test Set: 0.4684849009053191
+
+Dataset  77
+MixedShapesSmallTrain
+Adjusted Rand Index on Training Set: 0.48322273022709394
+Adjusted Rand Index on Test Set: 0.5138498564232221
+
+Dataset  78
+MoteStrain
+Adjusted Rand Index on Training Set: 0.30900575873972536
+Adjusted Rand Index on Test Set: 0.36297314081470045
+
+Dataset  79
+NonInvasiveFetalECGThorax1
+Adjusted Rand Index on Training Set: 0.10955189253988944
+Adjusted Rand Index on Test Set: 0.11380311372135778
+
+Dataset  80
+NonInvasiveFetalECGThorax2
+Adjusted Rand Index on Training Set: 0.10865275677297873
+Adjusted Rand Index on Test Set: 0.11019105994705763
+
+Dataset  81
+OliveOil
+Adjusted Rand Index on Training Set: 0.7645930281517389
+Adjusted Rand Index on Test Set: 0.3473423980222497
+
+Dataset  82
+OSULeaf
+Adjusted Rand Index on Training Set: 0.13471802298567398
+Adjusted Rand Index on Test Set: 0.11753409625333126
+
+Dataset  83
+PhalangesOutlinesCorrect
+Adjusted Rand Index on Training Set: 0.002804179481881858
+Adjusted Rand Index on Test Set: 0.0011849175024232523
+
+Dataset  84
+Phoneme
+Adjusted Rand Index on Training Set: 0.001618839837442126
+Adjusted Rand Index on Test Set: 0.0021673115292641003
+
+Dataset  85
+This dataset contains 'NaN'.
+
+Dataset  86
+PigAirwayPressure
+Adjusted Rand Index on Training Set: -0.003972161255705063
+Adjusted Rand Index on Test Set: -0.025119641793497238
+
+Dataset  87
+PigArtPressure
+Adjusted Rand Index on Training Set: 0.016091877705526877
+Adjusted Rand Index on Test Set: 0.003524554274155321
+
+Dataset  88
+PigCVP
+Adjusted Rand Index on Training Set: -0.00813331698662106
+Adjusted Rand Index on Test Set: -0.019898093648423088
+
+Dataset  89
+This dataset contains 'NaN'.
+
+Dataset  90
+Plane
+Adjusted Rand Index on Training Set: 0.692325819350537
+Adjusted Rand Index on Test Set: 0.5794772415748926
+
+Dataset  91
+PowerCons
+Adjusted Rand Index on Training Set: 0.18091849140109553
+Adjusted Rand Index on Test Set: 0.16281609286968754
+
+Dataset  92
+ProximalPhalanxOutlineAgeGroup
+Adjusted Rand Index on Training Set: 0.3343166827046012
+Adjusted Rand Index on Test Set: 0.28822704344360156
+
+Dataset  93
+ProximalPhalanxOutlineCorrect
+Adjusted Rand Index on Training Set: 0.024615123853490198
+Adjusted Rand Index on Test Set: 0.005787995402797534
+
+Dataset  94
+ProximalPhalanxTW
+Adjusted Rand Index on Training Set: 0.402063358547384
+Adjusted Rand Index on Test Set: 0.44144655883918793
+
+Dataset  95
+RefrigerationDevices
+Adjusted Rand Index on Training Set: 0.00023293311305770702
+Adjusted Rand Index on Test Set: -0.001966281308507355
+
+Dataset  96
+Rock
+Adjusted Rand Index on Training Set: 0.27842178495086184
+Adjusted Rand Index on Test Set: 0.4391826143366851
+
+Dataset  97
+ScreenType
+Adjusted Rand Index on Training Set: 0.017608496372028142
+Adjusted Rand Index on Test Set: -0.004621682899659257
+
+Dataset  98
+SemgHandGenderCh2
+Adjusted Rand Index on Training Set: 0.10810339721282208
+Adjusted Rand Index on Test Set: 0.10709756548327637
+
+Dataset  99
+SemgHandMovementCh2
+Adjusted Rand Index on Training Set: 0.11483963258494041
+Adjusted Rand Index on Test Set: 0.07085212943433321
+
+Dataset  100
+SemgHandSubjectCh2
+Adjusted Rand Index on Training Set: 0.1936271924187478
+Adjusted Rand Index on Test Set: 0.32967563027661007
+
+Dataset  101
+This dataset contains 'NaN'.
+
+Dataset  102
+ShapeletSim
+Adjusted Rand Index on Training Set: -0.003220466677442236
+Adjusted Rand Index on Test Set: -0.03536158012105769
+
+Dataset  103
+ShapesAll
+Adjusted Rand Index on Training Set: 0.04939765257630648
+Adjusted Rand Index on Test Set: 0.04894686268885369
+
+Dataset  104
+SmallKitchenAppliances
+Adjusted Rand Index on Training Set: 0.014793505605862659
+Adjusted Rand Index on Test Set: 0.015562858512216223
+
+Dataset  105
+SmoothSubspace
+Adjusted Rand Index on Training Set: 0.2141091561095434
+Adjusted Rand Index on Test Set: 0.4061363428895391
+
+Dataset  106
+SonyAIBORobotSurface1
+Adjusted Rand Index on Training Set: 0.3101574562306775
+Adjusted Rand Index on Test Set: 0.2898690230485009
+
+Dataset  107
+SonyAIBORobotSurface2
+Adjusted Rand Index on Training Set: 0.28503481033076233
+Adjusted Rand Index on Test Set: 0.2624274205729955
+
+Dataset  108
+StarLightCurves
+Adjusted Rand Index on Training Set: 0.3451600248554466
+Adjusted Rand Index on Test Set: 0.3468135490824735
+
+Dataset  109
+Strawberry
+Adjusted Rand Index on Training Set: 0.007624583525351569
+Adjusted Rand Index on Test Set: 0.03644323653274474
+
+Dataset  110
+SwedishLeaf
+Adjusted Rand Index on Training Set: 0.15449576993618397
+Adjusted Rand Index on Test Set: 0.16536050052705362
+
+Dataset  111
+Symbols
+Adjusted Rand Index on Training Set: 0.678396492153877
+Adjusted Rand Index on Test Set: 0.6872264172279924
+
+Dataset  112
+SyntheticControl
+Adjusted Rand Index on Training Set: 0.5829658936211597
+Adjusted Rand Index on Test Set: 0.5995231560891938
+
+Dataset  113
+ToeSegmentation1
+Adjusted Rand Index on Training Set: -0.003338200306910364
+Adjusted Rand Index on Test Set: -0.018050731501947137
+
+Dataset  114
+ToeSegmentation2
+Adjusted Rand Index on Training Set: 0.006887634697074724
+Adjusted Rand Index on Test Set: -0.01706438235094162
+
+Dataset  115
+Trace
+Adjusted Rand Index on Training Set: 0.2923128214708446
+Adjusted Rand Index on Test Set: 0.28182546036829464
+
+Dataset  116
+TwoLeadECG
+Adjusted Rand Index on Training Set: 0.0071598847778257734
+Adjusted Rand Index on Test Set: -0.003591123212135251
+
+Dataset  117
+TwoPatterns
+Adjusted Rand Index on Training Set: 0.02127895728664595
+Adjusted Rand Index on Test Set: 0.017937160041235897
+
+Dataset  118
+UMD
+Adjusted Rand Index on Training Set: 0.10042933337581993
+Adjusted Rand Index on Test Set: 0.037579011169798254
+
+Dataset  119
+UWaveGestureLibraryAll
+Adjusted Rand Index on Training Set: 0.4703685932201502
+Adjusted Rand Index on Test Set: 0.4926745755588033
+
+Dataset  120
+UWaveGestureLibraryX
+Adjusted Rand Index on Training Set: 0.32201987741197596
+Adjusted Rand Index on Test Set: 0.3608607131002506
+
+Dataset  121
+UWaveGestureLibraryY
+Adjusted Rand Index on Training Set: 0.3328790077879878
+Adjusted Rand Index on Test Set: 0.34241653264659067
+
+Dataset  122
+UWaveGestureLibraryZ
+Adjusted Rand Index on Training Set: 0.3096375673144503
+Adjusted Rand Index on Test Set: 0.3138139244770395
+
+Dataset  123
+Wafer
+Adjusted Rand Index on Training Set: 0.062080419312136814
+Adjusted Rand Index on Test Set: 0.06767134124438748
+
+Dataset  124
+Wine
+Adjusted Rand Index on Training Set: -0.010020017007054518
+Adjusted Rand Index on Test Set: 0.11290322580645161
+
+Dataset  125
+WordSynonyms
+Adjusted Rand Index on Training Set: 0.1450604524008485
+Adjusted Rand Index on Test Set: 0.2314486501758539
+
+Dataset  126
+Worms
+Adjusted Rand Index on Training Set: -0.002845565377816157
+Adjusted Rand Index on Test Set: 0.0182312308911788
+
+Dataset  127
+WormsTwoClass
+Adjusted Rand Index on Training Set: 0.00440069789550413
+Adjusted Rand Index on Test Set: 0.016764655320612016
+
+Dataset  128
+Yoga
+Adjusted Rand Index on Training Set: 0.005178448678689425
+Adjusted Rand Index on Test Set: -0.0012718018968706545
+
+Time to Run k-Means Experiment in Minutes: 6.196988352139791

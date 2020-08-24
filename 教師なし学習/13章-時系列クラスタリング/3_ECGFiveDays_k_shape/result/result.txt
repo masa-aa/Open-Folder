@@ -1,0 +1,6 @@
+Adjusted Rand Index: 0.668041237113402
+Adjusted Rand Index on Test Set: 0.012338817789874643
+
+ちなみにtrainをtest,testをtrainにすると
+Adjusted Rand Index: 0.7974798834610514
+Adjusted Rand Index on Test Set: 0.668041237113402

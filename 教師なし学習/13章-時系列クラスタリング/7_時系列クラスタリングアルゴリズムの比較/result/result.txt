@@ -1,0 +1,19 @@
+k-Shape Results
+Train ARS    0.240459
+Test ARS     0.218182
+dtype: float64
+
+k-Means Results
+Train ARS    0.177204
+Test ARS     0.176085
+dtype: float64
+
+HDBSCAN Results
+Train ARS    0.164126
+Test ARS     0.139537
+dtype: float64
+
+             kShape  kMeans  hdbscan
+firstPlace     59.0    28.0     26.0
+secondPlace    29.0    54.0     33.0
+thirdPlace     25.0    31.0     54.0
