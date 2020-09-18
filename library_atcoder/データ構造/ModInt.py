@@ -1,4 +1,6 @@
-MOD = 10**9+7 #素数 変える場所 
+MOD = 10**9 + 7  # 素数 変える場所
+
+
 class ModInt:
     def __init__(self, x):
         self.x = x % MOD

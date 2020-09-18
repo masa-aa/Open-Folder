@@ -8,14 +8,14 @@ for i in range(m):
     a, b, c = map(int, input().split())
     a, b = a - 1, b - 1
     es[a].append((b, c))
-    es[b].append((a, c)) # 無向グラフ
+    es[b].append((a, c))  # 無向グラフ
 
 
 def dijkstra(s):
     INF = 1 << 32
     d = [INF] * n  # 頂点sからの最短距離
     v = -1
-    que = [(0,s)]
+    que = [(0, s)]
     heapify(que)
     d[s] = 0
     while que:

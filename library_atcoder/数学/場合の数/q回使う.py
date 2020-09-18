@@ -1,6 +1,8 @@
-#テーブル作るやつ 前処理:O(n*log(mod)), comb(n, k):O(1)
+# テーブル作るやつ 前処理:O(n*log(mod)), comb(n, k):O(1)
 
-mod = 10**9+7 #998244353 # 変える
+mod = 10**9 + 7  # 998244353 # 変える
+
+
 def table():
     k = 2 * 10 ** 5 + 5  # 変える
     fac = [1] * k
@@ -12,7 +14,11 @@ def table():
         inv[i] = mod - inv[mod % i] * (mod // i) % mod
         finv[i] = finv[i - 1] * inv[i] % mod
     return fac, finv
+
+
 fac, finv = table()
+
+
 def comb(n, k):
     if n < k:
         return 0

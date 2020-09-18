@@ -18,17 +18,17 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import dijkstra
 
 n, m = map(int, input().split())
-edge = np.array([input().split() for _ in range(m)], dtype = np.int64)
+edge = np.array([input().split() for _ in range(m)], dtype=np.int64)
 graph = csr_matrix((edge[2], (edge[:2] - 1)), (n, n))
 x = int(input())
 
-ans = dijkstra(graph, directed = False, indices = 0) #有向グラフの場合はdirected = True ,indicesは始点
-print(int(ans[x-1]))
+ans = dijkstra(graph, directed=False, indices=0)  # 有向グラフの場合はdirected = True ,indicesは始点
+print(int(ans[x - 1]))
 # print (type(ans))
 # <class 'numpy.ndarray'>
 # print (ans)
 # [ 0.  2.  5.  7. 12.  8. 17.]
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # distance_mat, processors = dijkstra(graph, directed = False, indices = [0, 1], return_predecessors = True)
 # print ('点0からの最短距離')
 # print (distance_mat)

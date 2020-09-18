@@ -4,7 +4,9 @@
 import sys
 sys.setrecursionlimit(100000000)
 color = [0 for i in range(n)]
-def dfs(v,c):
+
+
+def dfs(v, c):
     color[v] = c
     for i in es[v]:
         if color[i] == c:
@@ -26,7 +28,7 @@ def dfs(v,c):
 
 # example
 # n = 5 #連結の場合を使う
-# es = [[1,2,3],[0,2],[0,1],[0,4],[3]] 
+# es = [[1,2,3],[0,2],[0,1],[0,4],[3]]
 # color = [0 for i in range(n)]
 # is_bipartite() #Fasle
 

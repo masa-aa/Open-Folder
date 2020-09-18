@@ -1,19 +1,19 @@
 """
 「[a,b)にxを足す」というクエリをQ回をO(N+k)でする.
 """
-n,q=map(int,input().split())
-c=[0]*(n+1)
-# Step1 
+n, q = map(int, input().split())
+c = [0] * (n + 1)
+# Step1
 # [a,b)にxを足すとき, a番目に +x, b番目に -x
 for i in range(q):
-    a,b,x=map(int,input().split())
-    c[a]+=x
-    c[b]-=x
+    a, b, x = map(int, input().split())
+    c[a] += x
+    c[b] -= x
 
 # Step2
 # 累積和
-for i in range(1,n+1):
-    c[i]+=c[i-1]
+for i in range(1, n + 1):
+    c[i] += c[i - 1]
 
 print(*c)
 

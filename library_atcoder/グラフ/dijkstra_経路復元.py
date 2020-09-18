@@ -1,8 +1,8 @@
-from heapq import heappush,heapify,heappop
+from heapq import heappush, heapify, heappop
 
 n, m = map(int, input().split())
 
-es=[[] for _ in range(n)] # es[i] = (頂点iの(隣接する頂点,コスト)の組)
+es = [[] for _ in range(n)]  # es[i] = (頂点iの(隣接する頂点,コスト)の組)
 
 
 # 入力
@@ -29,9 +29,11 @@ def dijkstra(s):
         for e in es[v]:
             if d[e[0]] > d[v] + e[1]:
                 d[e[0]] = d[v] + e[1]
-                heappush(que, (d[e[0]], e[0])) 
+                heappush(que, (d[e[0]], e[0]))
                 prev[e[0]] = v
     return d, prev
+
+
 def get_path(t, prev):
     path = []
     while t != -1:

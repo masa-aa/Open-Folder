@@ -3,6 +3,7 @@ y年が閏年か判定
 閏年:True
 """
 
+
 def uruu(y):
     if y % 400 == 0:
         return True

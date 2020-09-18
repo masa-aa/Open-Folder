@@ -6,7 +6,7 @@ for i in range(m):
     a, b, c = map(int, input().split())
     a, b = a - 1, b - 1
     d[a][b] = c
-    d[b][a] = c # 無向グラフ
+    d[b][a] = c  # 無向グラフ
 for i in range(n):
     d[i][i] = 0
 

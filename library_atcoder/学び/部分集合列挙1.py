@@ -6,4 +6,4 @@ n = int(input())
 k = n
 while k:
     # print(bin(k)[2:])
-    k = (k-1)&n
+    k = (k - 1) & n

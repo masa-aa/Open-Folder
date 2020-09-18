@@ -40,7 +40,7 @@ def make_rand(n, m):  # 多重辺, 自己ループなしの連結グラフ
     connect = [{1}] + [{i - 1, i + 1} for i in range(1, n - 1)] + [{n - 1}]
     for i in range(m - n):
         a, b = randint(0, n - 1), randint(0, n - 1)
-        if a != b and not a in connect[b]:
+        if a != b and a not in connect[b]:
             es[a].append(b)
             es[b].append(a)
             connect[a].add(b)
