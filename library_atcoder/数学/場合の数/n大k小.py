@@ -1,9 +1,10 @@
-# nが大きくてkが小さい O(k*log(mod))
+# nが大きくてkが小さい O(k)
 
-mod=10**9+7
-def comb(n,k):
-    ans=1
-    for i in range(1,k+1):
-        ans=ans*(n-k+i)%mod
-        ans=ans*pow(i,mod-2,mod)%mod
-    return ans
+
+def comb(n, k, mod=1000000007):
+    ans = 1
+    inv = 1
+    for i in range(1, k + 1):
+        ans = ans * (n - k + i) % mod
+        inv = inv * pow(i, mod - 2, mod) % mod
+    return ans * inv % mod
