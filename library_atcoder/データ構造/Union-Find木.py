@@ -6,7 +6,6 @@ class UnionFind:
         N:要素数
         root:各要素の親要素の番号を格納するリスト.
              ただし, root[x] < 0 ならその頂点が根で-root[x]が木の要素数.
-        rank:ランク
         """
         self.N = N
         self.root = [-1] * N
@@ -16,16 +15,17 @@ class UnionFind:
 
     def find(self, x):
         """頂点xの根を見つける"""
+        r = x
+        while self.root[r] >= 0:
+            r = self.root[r]
+
         while self.root[x] >= 0:
-            x = self.root[x]
-        return x
+            self.root[x], x = r, self.root[x]
+
+        return r
 
     def union(self, x, y):
         """x, yが属する木をunion"""
-        # 根を比較する
-        # すでに同じ木に属していた場合は何もしない.
-        # 違う木に属していた場合はrankを見てくっつける方を決める.
-        # rankが同じ時はrankを1増やす
         x = self.find(x)
         y = self.find(y)
         if x == y:
@@ -59,3 +59,5 @@ class UnionFind:
     def all_group_members(self):
         """{ルート要素: [そのグループに含まれる要素のリスト], ...}の辞書を返す"""
         return {r: self.members(r) for r in self.roots()}
+
+
