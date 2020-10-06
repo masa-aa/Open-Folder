@@ -1,36 +1,21 @@
 from heapq import heappush, heapify, heappop
 
-n, m = map(int, input().split())
 
-es = [[] for _ in range(n)]  # es[i] = (頂点iの(隣接する頂点,コスト)の組)
-
-
-# 入力
-for i in range(m):
-    a, b, c = map(int, input().split())
-    a, b = a - 1, b - 1
-    es[a].append((b, c))
-    es[b].append((a, c))  # 無向グラフ
-
-
-def dijkstra(s):
+def dijkstra(start: "始点", V: "頂点数", es: "隣接リスト", INF=10000000000):
+    # INF = 10**10 毎回チェックしよう
     prev = [-1] * n  # 経路復元
-    INF = 1 << 32
     d = [INF] * n  # 頂点sからの最短距離
-    v = -1
-    que = [(0, s)]
-    heapify(que)
-    d[s] = 0
+    que = [start]
+    d[start] = 0
     while que:
-        p = heappop(que)
-        v = p[1]
-        if d[v] < p[0]:
+        dv, v = divmod(heappop(que), INF)
+        if d[v] < dv:
             continue
-        for e in es[v]:
-            if d[e[0]] > d[v] + e[1]:
-                d[e[0]] = d[v] + e[1]
-                heappush(que, (d[e[0]], e[0]))
-                prev[e[0]] = v
+        for e, de in es[v]:
+            if d[e] > d[v] + de:
+                d[e] = d[v] + de
+                heappush(que, d[e] * INF + e)
+                prev[e] = v
     return d, prev
 
 
@@ -41,5 +26,13 @@ def get_path(t, prev):
         t = prev[t]
     path.reverse()
     return path
-# dijkstra(0)
-# print(d)
+
+
+n, m = map(int, input().split())
+es = [[] for _ in range(n)]  # es[i] = (頂点iの(隣接する頂点,コスト)の組)
+# 入力
+for i in range(m):
+    a, b, c = map(int, input().split())
+    a, b = a - 1, b - 1
+    es[a].append((b, c))
+    es[b].append((a, c))  # 無向グラフ

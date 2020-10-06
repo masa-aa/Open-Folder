@@ -92,3 +92,12 @@ class PrimeFactor:
         for i in Counter(self.factorization(N)).values():
             res *= i + 1
         return res
+
+    def sum_divisors(self, N):
+        if N == 1:
+            return 1
+        res = 1
+        c = Counter(self.factorization(N))
+        for i in c:
+            res *= (i ** (c[i] + 1) - 1) // (i - 1)
+        return res
