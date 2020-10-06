@@ -15,6 +15,7 @@ class matrix:
 
     # eq(==), ne(!=)
     def __eq__(self, other):
+        """任意の要素が同じとき=="""
         for row in range(self.row):
             for column in range(self.column):
                 if self.__A[row][column] != other[row, column]:
@@ -30,6 +31,7 @@ class matrix:
 
     # add(+)
     def __add__(self, other):
+        """A + B, AとBの型が違うとき未定義"""
         res = [[0] * other.column for i in range(self.row)]
         for row in range(self.row):
             for column in range(self.column):
@@ -44,6 +46,7 @@ class matrix:
 
     # sub(-)
     def __sub__(self, other):
+        """A - B, AとBの型が違うとき未定義"""
         res = [[0] * other.column for i in range(self.row)]
         for row in range(self.row):
             for column in range(self.column):
@@ -58,35 +61,39 @@ class matrix:
 
     # mul(*)
     def __mul__(self, other):
-        if isinstance(other, int):
-            res = [[0] * self.column for i in range(self.row)]
-            for row in range(self.row):
-                for column in range(self.column):
-                    res[row][column] = other * self.__A[row][column]
-
-        else:
+        """N*M行列AとM*L行列Bに対してN*L行列A*Bまたは
+        scala値aとM*L行列Bに対してM*L行列a*Bを定義
+        それ以外は未定義"""
+        if isinstance(other, matrix):
             res = [[0] * other.column for i in range(self.row)]
             for i in range(self.row):
                 for j in range(other.column):
                     for k in range(self.column):
                         res[i][j] += self.__A[i][k] * other[k, j]
+
+        else:
+            res = [[0] * self.column for i in range(self.row)]
+            for row in range(self.row):
+                for column in range(self.column):
+                    res[row][column] = other * self.__A[row][column]
         return self.__class__(res)
 
     def __imul__(self, other):
-        if isinstance(other, int):
-            for row in range(self.row):
-                for column in range(self.column):
-                    self.__A[row][column] *= other
-            return self
+        if isinstance(other, matrix):
+            res = [[0] * other.column for i in range(self.row)]
+            for i in range(self.row):
+                for j in range(other.column):
+                    for k in range(self.column):
+                        res[i][j] += self.__A[i][k] * other[k, j]
+            return self.__class__(res)
 
-        res = [[0] * other.column for i in range(self.row)]
-        for i in range(self.row):
-            for j in range(other.column):
-                for k in range(self.column):
-                    res[i][j] += self.__A[i][k] * other[k, j]
-        return self.__class__(res)
+        for row in range(self.row):
+            for column in range(self.column):
+                self.__A[row][column] *= other
+        return self
 
     def __rmul__(self, other):
+        """scala値aとM*L行列Bに対してM*L行列B*aを定義, それ以外は未定義"""
         res = [[0] * self.column for i in range(self.row)]
         for row in range(self.row):
             for column in range(self.column):
@@ -95,6 +102,7 @@ class matrix:
 
     # pow(**)
     def __pow__(self, other):
+        """N*N行列Aに対してA**nを定義"""
         res = identity(self.row)
         tmp = matrix(self.__A)
         for i in range(other.bit_length()):
