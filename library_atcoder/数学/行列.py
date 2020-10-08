@@ -1,6 +1,5 @@
-# 行列の積
-
 def dot(A, B):
+    # 行列の積
     N, M, L = len(A), len(A[0]), len(B[0])
     res = [[0] * L for i in range(N)]
     for i in range(N):
@@ -10,9 +9,8 @@ def dot(A, B):
     return res
 
 
-# A^x
-
 def matPow(A, x):
+    # A^x
     N = len(A)
     res = [[0] * N for i in range(N)]
     for i in range(N):

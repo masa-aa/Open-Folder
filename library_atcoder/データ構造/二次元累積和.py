@@ -22,7 +22,7 @@ class CumulativeSum2D:
         """sum(a, b, x, y) = [a, b] * [x, y]の和(面積)"""
         if a > b or x > y:
             return 0
-        if a == 0 and b == 0:
+        if a == 0 and x == 0:
             return self.cum[b][y]
         if a == 0:
             return self.cum[b][y] - self.cum[b][x - 1]

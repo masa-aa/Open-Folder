@@ -1,9 +1,5 @@
-"""
- z/mod*z のaの逆元を返す.(Euclidの互除法, 非再帰)
-"""
-
-
 def inv(a, m):
+    """z/mz のaの逆元を返す.(Euclidの互除法)"""
     b, u, v = m, 1, 0
     while b:
         t = a // b
@@ -18,6 +14,6 @@ def inv(a, m):
 
 
 """
- modが素数の時, z/mod*z のaの逆元を返す.(Fermatの小定理)
+ modが素数の時, z/mz のaの逆元を返す.(Fermatの小定理)
 """
 # pow(a, mod-2, mod)

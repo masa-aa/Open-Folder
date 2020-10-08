@@ -25,7 +25,8 @@ def Miller(N):
     return True
 
 
-print(Miller(10**30 + 57))
+if __name__ == "__main__":
+    print(Miller(10**30 + 57))
 
 # v = [2, 3, 5, 7, 325, 9375, 28178, 450775, 9780504, 1795265022]
 # verify

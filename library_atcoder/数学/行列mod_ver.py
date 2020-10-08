@@ -1,6 +1,5 @@
-# 行列の積 in Z/(mod Z)*(N*N)
-
 def dot(A, B, MOD=1000000007):
+    # 行列の積 in Z/(mod Z)*(N*N)
     N, M, L = len(A), len(A[0]), len(B[0])
     res = [[0] * L for i in range(N)]
     for i in range(N):
@@ -12,9 +11,8 @@ def dot(A, B, MOD=1000000007):
     return res
 
 
-# A^x in Z/(mod Z)*(N*N)
-
 def matPow(A, x, MOD=1000000007):
+    # A^x in Z/(mod Z)*(N*N)
     N = len(A)
     res = [[0] * N for i in range(N)]
     for i in range(N):
