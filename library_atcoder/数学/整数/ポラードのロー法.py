@@ -14,6 +14,7 @@ class PrimeFactor:
         """ミラーラビン"""
         v = [2, 7, 61] if N < 4_759_123_141 else \
             [2, 3, 5, 7, 11, 13, 17] if N < 341_550_071_728_321 else \
+            [2, 3, 5, 7, 11, 13, 17, 19, 23] if N < 3_825_123_056_546_413_051 else \
             [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
         if N < 2:
             return False
@@ -59,7 +60,7 @@ class PrimeFactor:
     def factorization(self, N):
         """素因数分解"""
         if N == 1:
-            return [1]
+            return []
         arr = []
         while N > 1:
             k = self.get_factor(N)
@@ -94,6 +95,7 @@ class PrimeFactor:
         return res
 
     def sum_divisors(self, N):
+        """約数の総和"""
         if N == 1:
             return 1
         res = 1
@@ -103,8 +105,12 @@ class PrimeFactor:
         return res
 
     def Eulers_function(self, N):
+        """オイラー関数"""
         res = 1
         for i in set(self.factorization(N)):
             res *= (i - 1)
             N //= i
         return res * N
+
+# verify
+# https://judge.yosupo.jp/problem/factorize

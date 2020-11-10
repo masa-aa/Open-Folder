@@ -18,7 +18,7 @@ class factorization:
     def fact(self, n):
         """O(sqrt(N)/log(N))"""
         if n == 1:
-            return [1]
+            return []
         arr = []
         temp = n
         for i in self.sieve:

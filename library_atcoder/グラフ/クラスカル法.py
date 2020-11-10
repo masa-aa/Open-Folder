@@ -30,7 +30,7 @@ class UnionFind:
         return self.find(x) == self.find(y)
 
 
-def krascal(n, D):
+def krascal(n: "頂点数", D: "隣接リスト"):
     """D[i] = (x, y, (x, y)間のcost), 最小全域木のコストを返す"""
     uf = UnionFind(n)
     D.sort(key=lambda x: x[2])

@@ -1,3 +1,4 @@
+# issue divmodのmodを小さくする
 from heapq import heappush, heapify, heappop
 
 

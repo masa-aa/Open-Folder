@@ -2,7 +2,9 @@ from math import sqrt
 
 
 def Eratosthenes(n):
-    """n(>=6)未満の素数列挙 """
+    """n未満の素数列挙 """
+    if n < 4:
+        return [] if n < 2 else [2]
     n, correction = n - n % 6 + 6, 2 - (n % 6 > 1)
     sieve = [True] * (n // 3)
     for i in range(1, int(sqrt(n)) // 3 + 1):
