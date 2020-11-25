@@ -1,18 +1,18 @@
 class WeightedUnionFind:
-    def __init__(self, n):
-        """root[v] = vの親, rank[v] = 木の高さ, diff_weight[v] = 根からの重み"""
-        self.root = list(range(n))
-        self.rank = [0] * n
-        self.diff_weight = [0] * n
+    __slots__ = ("root", "diff_weight")
+
+    def __init__(self, N):
+        """root[v] = vの親, diff_weight[v] = 根からの重み"""
+        self.root = [-1] * N
+        self.diff_weight = [0] * N
 
     def find(self, x):
-        stack = []
-        while self.root[x] != x:
-            stack.append(x)
+        que = []
+        while self.root[x] >= 0:
+            que.append(x)
             x = self.root[x]
 
-        stack.reverse()
-        for i in stack:
+        for i in reversed(que):
             self.diff_weight[i] += self.diff_weight[self.root[i]]
             self.root[i] = x
 
@@ -22,23 +22,30 @@ class WeightedUnionFind:
         self.find(x)
         return self.diff_weight[x]
 
+    def difference(self, x, y):
+        """weight(y) - weight(x)"""
+        assert self.find(x) == self.find(y)
+        return self.diff_weight[y] - self.diff_weight[x]
+
     def same(self, x, y):
         return self.find(x) == self.find(y)
 
     def union(self, x, y, w):
         """weight(y) - weight(x) = w となるように union する"""
-        w += self.weight(x)
-        w -= self.weight(y)
-        x, y = self.find(x), self.find(y)
+        x_root = self.find(x)
+        y_root = self.find(y)
+        w += self.diff_weight[x]
+        w -= self.diff_weight[y]
+        x, y = x_root, y_root
         if x == y:
             return
-        if self.rank[x] < self.rank[y]:
+        if self.root[y] < self.root[x]:
             x, y, w = y, x, -w
-        if x == y:
-            self.rank[x] += 1
+        self.root[x] += self.root[y]
         self.root[y] = x
         self.diff_weight[y] = w
 
 
 # verify
 # https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4984129/masa_aa/Python3
+# https://atcoder.jp/contests/abc087/submissions/18052603

@@ -272,7 +272,7 @@
 	},
 	"Union-Find": {
 		"prefix": "unionfind",
-		"body": "class UnionFind:\r\n    __slots__ = [\"N\", \"root\"]\r\n\r\n    def __init__(self, N):\r\n        \"\"\"\r\n        N:要素数\r\n        root:各要素の親要素の番号を格納するリスト.\r\n             ただし, root[x] < 0 ならその頂点が根で-root[x]が木の要素数.\r\n        \"\"\"\r\n        self.N = N\r\n        self.root = [-1] * N\r\n\r\n    def __repr__(self):\r\n        return '\\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())\r\n\r\n    def find(self, x):\r\n        \"\"\"頂点xの根を見つける\"\"\"\r\n        r = x\r\n        while self.root[r] >= 0:\r\n            r = self.root[r]\r\n\r\n        while self.root[x] >= 0:\r\n            self.root[x], x = r, self.root[x]\r\n\r\n        return r\r\n\r\n    def union(self, x, y):\r\n        \"\"\"x, yが属する木をunion\"\"\"\r\n        x = self.find(x)\r\n        y = self.find(y)\r\n        if x == y:\r\n            return\r\n        elif self.root[y] < self.root[x]:\r\n            x, y = y, x\r\n        self.root[x] += self.root[y]\r\n        self.root[y] = x\r\n\r\n    def same(self, x, y):\r\n        \"\"\"xとyが同じグループに属するかどうか\"\"\"\r\n        return self.find(x) == self.find(y)\r\n\r\n    def count(self, x):\r\n        \"\"\"頂点xが属する木のサイズを返す\"\"\"\r\n        return - self.root[self.find(x)]\r\n\r\n    def members(self, x):\r\n        \"\"\"xが属する木の要素を列挙\"\"\"\r\n        _root = self.find(x)\r\n        return [i for i in range(self.N) if self.find(i) == _root]\r\n\r\n    def roots(self):\r\n        \"\"\"森の根を列挙\"\"\"\r\n        return [i for i, x in enumerate(self.root) if x < 0]\r\n\r\n    def group_count(self):\r\n        \"\"\"連結成分の数\"\"\"\r\n        return len(self.roots())\r\n\r\n    def all_group_members(self):\r\n        \"\"\"{ルート要素: [そのグループに含まれる要素のリスト], ...}の辞書を返す\"\"\"\r\n        return {r: self.members(r) for r in self.roots()}\r\n\r\n\r\n",
+		"body": "class UnionFind:\r\n    __slots__ = [\"N\", \"root\"]\r\n\r\n    def __init__(self, N):\r\n        \"\"\"\r\n        N:要素数\r\n        root:各要素の親要素の番号を格納するリスト.\r\n             ただし, root[x] < 0 ならその頂点が根で-root[x]が木の要素数.\r\n        \"\"\"\r\n        self.N = N\r\n        self.root = [-1] * N\r\n\r\n    def __repr__(self):\r\n        return '\\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())\r\n\r\n    def find(self, x):\r\n        \"\"\"頂点xの根を見つける\"\"\"\r\n        r = x\r\n        while self.root[r] >= 0:\r\n            r = self.root[r]\r\n\r\n        while self.root[x] >= 0:\r\n            self.root[x], x = r, self.root[x]\r\n\r\n        return r\r\n\r\n    def union(self, x, y):\r\n        \"\"\"x, yが属する木をunion\"\"\"\r\n        x = self.find(x)\r\n        y = self.find(y)\r\n        if x == y:\r\n            return\r\n        elif self.root[y] < self.root[x]:\r\n            x, y = y, x\r\n        self.root[x] += self.root[y]\r\n        self.root[y] = x\r\n\r\n    def same(self, x, y):\r\n        \"\"\"xとyが同じグループに属するかどうか\"\"\"\r\n        return self.find(x) == self.find(y)\r\n\r\n    def count(self, x):\r\n        \"\"\"頂点xが属する木のサイズを返す\"\"\"\r\n        return - self.root[self.find(x)]\r\n\r\n    def members(self, x):\r\n        \"\"\"xが属する木の要素を列挙\"\"\"\r\n        _root = self.find(x)\r\n        return [i for i in range(self.N) if self.find(i) == _root]\r\n\r\n    def roots(self):\r\n        \"\"\"森の根を列挙\"\"\"\r\n        return [i for i, x in enumerate(self.root) if x < 0]\r\n\r\n    def group_count(self):\r\n        \"\"\"連結成分の数\"\"\"\r\n        return len(self.roots())\r\n\r\n    def all_group_members(self):\r\n        \"\"\"{ルート要素: [そのグループに含まれる要素のリスト], ...}の辞書を返す\"\"\"\r\n        groups = {r: [] for r in self.roots()}\r\n        for i in range(self.N):\r\n            groups[self.find(i)].append(i)\r\n        return groups\r\n\r\n\r\n\r\n",
 		"description": "Union-Find"
 	},
 	"組み合わせ": {
@@ -292,12 +292,22 @@
 	},
 	"入力高速化": {
 		"prefix": "speedingup",
-		"body": "import sys\r\ninput = sys.stdin.readline\r\n# def input(): return sys.stdin.readline().rstrip() # 文字列",
+		"body": "import sys\r\ninput = sys.stdin.readline\r\n",
 		"description": "入力高速化"
 	},
 	"chain": {
 		"prefix": "chain",
 		"body": "from itertools import chain\r\n# max(chain.from_iterable(dp)) # で二次元の最大値が取れるよ",
 		"description": "chain"
+	},
+	"scanf": {
+		"prefix": "scanf",
+		"body": "from libc.stdio cimport scanf, printf",
+		"description": "scanf, printf"
+	},
+	"speeding_up_string": {
+		"prefix": "speedingupstr",
+		"body": "import sys\r\ndef input(): return sys.stdin.readline().rstrip()  # 文字列\r\n",
+		"description": "入力高速化"
 	}
 }
