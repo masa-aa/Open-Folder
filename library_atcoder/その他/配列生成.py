@@ -5,7 +5,7 @@ def create_array(*dims, initial=0):
     code = "[" * n + "{}] * {}" + " for _ in range({})]" * (n - 1)
     # evalする
     # print(code.format(initial, *dims))
-    return eval(code.format(initial, *dims))
+    return eval(code.format(initial, *reversed(dims)))
 
 
 if __name__ == "__main__":
