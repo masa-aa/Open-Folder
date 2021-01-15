@@ -1,3 +1,1 @@
-基本的に読んだ本のコード. 
-スニペットとライブラリは競プロ用 ※バグってたら報告お願いします.
-ご自由にお使いください.
+library_atcoder は https://github.com/masa-aa/library_atcoder に移動しました．
